@@ -1,0 +1,23 @@
+---
+title: "Untitled"
+subtitle: "subtitle"
+author: "Dean Marchiori"
+institute: "Wave Data Labs"
+format: 
+  revealjs:
+    theme: [simple]
+    incremental: true
+    slide-number: true
+    show-slide-number: all
+    footer: "[https://dicook.github.io/LatinR](https://dicook.github.io/LatinR)"
+---
+
+# Intro
+
+## New Slide
+
+Hi! new slide  
+
+* dot point  
+* dot point  
+
