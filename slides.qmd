@@ -12,12 +12,44 @@ format:
     footer: "[https://dicook.github.io/LatinR](https://dicook.github.io/LatinR)"
 ---
 
-# Intro
+# Part 1: Overview of Azure Machine Learning Studio  
 
-## New Slide
+## Feature Overview    
 
-Hi! new slide  
+## What is MLOps?    
 
-* dot point  
-* dot point  
+## Experimentation vs Productionisation (Inner Loop vs Outer Loop)  
 
+## Reference Architecture  
+
+## Deployment patterns
+
+
+# Part 2: Converting development code into production quality code   
+
+## Case Study:  TBC  
+
+## Review experimentation code  
+
+## Split into scripts
+
+## MLOps additions
+
+
+# Part 3: Deploying MLOps pipelines  
+
+## Infrastructure as Code deployment  
+
+## Model training  
+
+## Endpoint deployment and test  
+
+## Real World Considerations
+
+  - Usage / monitoring  
+  - Security  
+  - Prod vs Dev  
+  - Unit Tests
+  - Model performance promotion  
+  - Monitoring 
+  - CI/CD  

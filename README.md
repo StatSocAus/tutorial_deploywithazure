@@ -7,11 +7,29 @@ Website: [https://StatSocAus.github.io/tutorial_deploywithazure](https://StatSoc
 ## Structure of tutorial
  
 * Overview of Azure Machine Learning Studio  
-    - Part A
-    - Part B  
+    - Feature Overview  
+    - What is MLOps?  
+    - Experimentation vs Productionisation (Inner Loop vs Outer Loop)  
+    - Reference Architecture  
+    - Deployment patterns
 * Converting development code into production quality code  
-* Deploying infrastucture as code  
-* Deploying models pipelines  
+    - Case Study:  TBC  
+    - Review experimentation code  
+    - Split into scripts
+    - MLOps additions
+* Deploying MLOps pipelines  
+    - Pipelines 
+    - Infrastructure as Code deployment  
+    - Model training  
+    - Endpoint deployment and test  
+    - Usage / monitoring  
+    - Advice for real-world deployments  
+        - Security  
+        - Prod vs Dev  
+        - Unit Tests
+        - Model performance promotion  
+        - Monitoring 
+        - CI/CD  
 
 Background: Participants should have some experience with Python and basic understanding of cloud platforms such as Microsoft Azure, AWS or Google Cloud Platform.  
 
@@ -39,5 +57,9 @@ Background: Participants should have some experience with Python and basic under
 
 2. Github account  
 
+
+## Links and References  
+
 GitHub repo with all materials is 
 [https://statsocaus.github.io/tutorial_effective_data_plots/](https://statsocaus.github.io/tutorial_effective_data_plots/).
+
