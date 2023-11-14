@@ -52,7 +52,20 @@ Background: Participants should have some experience with Python and basic under
 
 ## Getting started
 
-1. (RECOMMENDED) Users wanting to run code interactively should have a Python (3.8) environment and IDE setup **before** the workshop. The `environment.yaml` file in this repository was used to set up a virtual conda environment to run examples in this workshop. 
+1. (RECOMMENDED) Users wanting to run code interactively should have a Python (3.8) environment and IDE setup **before** the workshop. The `environment.yaml` file in this repository was used to set up a virtual conda environment to run examples in this workshop. You can test this by loading the required libraries:  
+
+```
+import argparse
+from pathlib import Path
+import os
+import numpy as np
+import pandas as pd
+from matplotlib import pyplot as plt
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+import mlflow
+import mlflow.sklearn
+```
 
 2. Git running on your local machine.  
 
@@ -61,7 +74,7 @@ Background: Participants should have some experience with Python and basic under
     a) Sign up for a subscription with Microsoft Azure. This is a paid service, but Microsoft offers new users with a $200 USD credit to use within 30 days. https://azure.microsoft.com/en-au/free  
     b) Have an active DevOps organisation. Note that Microsoft have temporarily disabled the free grant of parallel jobs for public projects and for certain private projects in new organizations. However, you can request this grant by submitting a [request](https://aka.ms/azpipelines-parallelism-request). Existing organizations and projects are not affected. Please note that it takes us 2-3 business days to respond to free tier requests.
 
-**These steps are optional. Its not expected that all participants will want to sign up for an account with Azure. The workshop will demonstrate this as a deployment pathway, but it is not mandatory to enjoy the content and apply the principles to other platforms.**
+**Step 3 is optional. Its not expected that all participants will want to sign up for an account with Azure. The workshop will demonstrate this as a deployment pathway, but it is not mandatory to enjoy the content and apply the principles to other platforms.**
 
 
 ## Links and References  

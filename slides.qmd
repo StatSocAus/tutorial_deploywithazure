@@ -1,6 +1,6 @@
 ---
-title: "Get your model into prod."
-subtitle: "Deploying your local Python or R modelling code into production with Microsoft Azure"
+title: "Get your model into prod"
+subtitle: "Deploying your modelling code into production with Microsoft Azure"
 author: "Dean Marchiori"
 institute: "Wave Data Labs"
 format: 
@@ -26,18 +26,27 @@ format:
 
 ![Source: [Kreuzberger (2023)](https://doi.org/10.1109/ACCESS.2023.3262138)](img/ven1.gif)  
 
-## What is MLOps?    
+## What is MLOps?     
 
+:::: {.columns}
+
+::: {.column width="60%"}
 - CI/CD Automation  
 - Workflow Orchestration  
 - Reproducibility  
 - Versioning of data, model, code  
-- Collaboration  
 - ML metadata tracking  
-- Monitoring  
-- Feedback loops
+- Monitoring & Feedback
+:::
+
+::: {.column width="40%"}
+![](img/ven1.gif)
+:::
+
+::::
 
 Source: [Kreuzberger (2023)](https://doi.org/10.1109/ACCESS.2023.3262138)
+
 
 ## Who is MLOps?  
 
@@ -52,37 +61,42 @@ Source: [Kreuzberger (2023)](https://doi.org/10.1109/ACCESS.2023.3262138)
 ![](img/chan.jpeg)
 :::
 
-
-
 ## Experimentation vs Productionisation  (Inner Loop vs Outer Loop)  
 
-![Kenneth Jensen, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons](img/crispdm.png)
+:::: {.columns}
 
-
-
-## Experimentation vs Productionisation  (Inner Loop vs Outer Loop)  
-
-::: {.nonincremental}
+::: {.column width="60%"}
 - Business Understanding  
 - Data Understanding  
 - Data Preparation  
 - Modelling  
 - Evaluation  
 - Deployment  
-:::
 
 Source: [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining)
+
+:::
+
+::: {.column width="40%"}
+![Kenneth Jensen, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons](img/crispdm.png)
+:::
+
+::::
 
 --- 
 
 - **Outer Loop**  
 - Infrastructure Deployment
-  - **Inner Loop**  
-    - Business Understanding  
-    - Data Understanding  
-    - Data Preparation  
-    - Modelling  
-    - Evaluation   
+  - **Inner Loop**    
+
+    :::{.nonincremental}
+      - Business Understanding  
+      - Data Understanding  
+      - Data Preparation  
+      - Modelling  
+      - Evaluation   
+    :::  
+  
 - Model Registration and Deployment  
 - Monitoring  
 
@@ -116,9 +130,72 @@ graph TD;
 
 ## Azure ML Studio Tour  
 
+INSERT IMAGE
+
+
 # Part 2: Converting development code into production quality code   
 
-## Case Study:  Taxi Model    
+## Case Study:  Predict NYC Taxi Fares      
+
+Not really important, just a quick example.  
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+#| eval: false
+#| echo: true
+#| 
+RandomForestRegressor(n_estimators = 500,
+                      bootstrap = 1,
+                      max_depth = 10,
+                      max_features = 1.0,
+                      min_samples_leaf = 4,
+                      min_samples_split = 5,
+                      random_state=0)
+```
+
+:::
+
+::: {.column width="50%"}
+```{python}
+#| eval: false
+#| echo: true
+
+TARGET_COL = "cost"
+
+NUMERIC_COLS = [
+    "distance",
+    "dropoff_latitude",
+    "dropoff_longitude",
+    "passengers",
+    "pickup_latitude",
+    "pickup_longitude",
+    "pickup_weekday",
+    "pickup_month",
+    "pickup_monthday",
+    "pickup_hour",
+    "pickup_minute",
+    "pickup_second",
+    "dropoff_weekday",
+    "dropoff_month",
+    "dropoff_monthday",
+    "dropoff_hour",
+    "dropoff_minute",
+    "dropoff_second",
+]
+
+CAT_NOM_COLS = [
+    "store_forward",
+    "vendor",
+]
+
+```
+
+:::
+
+::::
 
 ## Review experimentation code   
 
@@ -134,19 +211,15 @@ graph TB
 ## Split into scripts
 
 ```{mermaid}
-graph TB
-  a1[[Data Prep]] 
-  a2[[Model Training]]
-  a3[[Evaluation]]
-  a4[[Unit Tests]]
-```
-
-## Parameterise scripts
-
-```{mermaid}
-graph TB
+graph LR
   a1[[Data Prep]]-->a2[[Model Training]]-->a3[[Evaluation]]-->a4[[Unit Tests]]
 ```
+
+- Read in required inputs  
+- Export object for next step  
+- Parameterise scripts with [`argparse`](https://pypi.org/project/argparse/)  
+- Add logging using [`mlflow`](https://mlflow.org/)  
+- Bundling code as functions  
 
 
 ## MLOps additions
@@ -156,9 +229,11 @@ graph TB
   b1[[Infrastructure Deploy]]
   a1[[Data Prep]]-->a2[[Model Training]]-->a3[[Evaluation]]-->a4[[Unit Tests]]
   e1[[Deploy REST API Endpoint]]
+  style b1 fill:red
+  style e1 fill:red
 ```
 
-## Pipeline  
+## Convert to 'pipelines'  
 
 ```{mermaid}
 flowchart LR
@@ -178,8 +253,7 @@ flowchart LR
   style p3 fill:lightblue;
 ```
 
-## Pipeline  
-
+## More detailed pipeline  
 
 ```{mermaid}
 flowchart LR
@@ -205,21 +279,45 @@ flowchart LR
   style p3 fill:lightblue;
 ```
 
+## Result? A sea of YAML files
+
+![](img/sea.jpg)
 
 # Part 3: Deploying MLOps pipelines  
 
-## Quickstart  
+## Setup    
 
-https://learn.microsoft.com/en-us/azure/machine-learning/how-to-setup-mlops-azureml
+:::{.nonincremental}
+1. Create service principal in Azure Portal   
+2. Create new project in DevOps  
+3. Configure authentication with Azure + Security  
+4. Clone repo from MLOps template  
+5. Set up pipelines from the `.yml` files  
+:::
 
-- DevOps  
-- Azure Portal  
-- Set up authentication with Azure and DevOps  
-- Set up Repo and Security settings  
-- Create Pipeline  
+Detailed Instructions at:  
+
+[MLOps Quickstart](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-setup-mlops-azureml)  
+
+More bespoke instructions at:   
+[Azure MLOps (v2) Solution Accelerator](https://github.com/Azure/mlops-v2)
 
 
-## Infrastructure as Code deployment  
+## Infrastructure as Code deployment    
+
+:::: {.columns}
+
+::: {.column width="40%"}
+1. One  
+2. Two  
+3. Three
+:::
+
+::: {.column width="60%"}
+![](img/ven1.gif)
+:::
+
+::::
 
 ## Model training  
 
