@@ -1,4 +1,4 @@
-# SSA SCV Tutorial: Deploying your local Python or R modelling code into Production with Microsoft Azure
+# SSA SCV Tutorial: Deploying your local modelling code into Production with Microsoft Azure
 
 <img src="SCV3.png" align="right" width="150" />
 
@@ -46,21 +46,29 @@ Background: Participants should have some experience with Python and basic under
 |11:15 - 11:30 | Break |
 |11:30 - 12:30 | Session 3|
 
-[Session 1 Slides]()
-
-[Session 2 Slides]()
+[Session Slides]()
 
 [Zip file of materials]()
 
 ## Getting started
 
-1. Active participation will require users to sign up for an account with Microsoft Azure. This is a paid service, but Microsoft offers new users with a $200 USD credit to use within 30 days. https://azure.microsoft.com/en-au/free  
+1. (RECOMMENDED) Users wanting to run code interactively should have a Python (3.8) environment and IDE setup **before** the workshop. The `environment.yaml` file in this repository was used to set up a virtual conda environment to run examples in this workshop. 
 
-2. Github account  
+2. Git running on your local machine.  
+
+2. (OPTIONAL) Users wanting to replicate the Cloud deployment steps will require the following:
+
+    a) Sign up for a subscription with Microsoft Azure. This is a paid service, but Microsoft offers new users with a $200 USD credit to use within 30 days. https://azure.microsoft.com/en-au/free  
+    b) Have an active DevOps organisation. Note that Microsoft have temporarily disabled the free grant of parallel jobs for public projects and for certain private projects in new organizations. However, you can request this grant by submitting a [request](https://aka.ms/azpipelines-parallelism-request). Existing organizations and projects are not affected. Please note that it takes us 2-3 business days to respond to free tier requests.
+
+**These steps are optional. Its not expected that all participants will want to sign up for an account with Azure. The workshop will demonstrate this as a deployment pathway, but it is not mandatory to enjoy the content and apply the principles to other platforms.**
 
 
 ## Links and References  
 
-GitHub repo with all materials is 
-[https://statsocaus.github.io/tutorial_effective_data_plots/](https://statsocaus.github.io/tutorial_effective_data_plots/).
+[MLOps Code Repo]()
+
+[Azure MLOps (v2) Solution Accelerator](https://github.com/Azure/mlops-v2)
+
+[Azure MlOps DevOps Quickstart](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-setup-mlops-azureml)  
 
