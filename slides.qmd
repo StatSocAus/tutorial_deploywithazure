@@ -1,6 +1,6 @@
 ---
-title: "Untitled"
-subtitle: "subtitle"
+title: "Get your model into prod."
+subtitle: "Deploying your local Python or R modelling code into production with Microsoft Azure"
 author: "Dean Marchiori"
 institute: "Wave Data Labs"
 format: 
@@ -9,34 +9,215 @@ format:
     incremental: true
     slide-number: true
     show-slide-number: all
-    footer: "[https://dicook.github.io/LatinR](https://dicook.github.io/LatinR)"
+    footer: "[https://deanmarchiori.github.io/deploywithazure](https://deanmarchiori.github.io/deploywithazure)"
 ---
 
-# Part 1: Overview of Azure Machine Learning Studio  
+## Go from this... 
 
-## Feature Overview    
+{{< video img/model.webm width="900" height="600" >}}
+
+## To this... 
+
+
+
+# Part 1: Overview of Machine Learning Operations (MLOps)
 
 ## What is MLOps?    
 
-## Experimentation vs Productionisation (Inner Loop vs Outer Loop)  
+![Source: [Kreuzberger (2023)](https://doi.org/10.1109/ACCESS.2023.3262138)](img/ven1.gif)  
+
+## What is MLOps?    
+
+- CI/CD Automation  
+- Workflow Orchestration  
+- Reproducibility  
+- Versioning of data, model, code  
+- Collaboration  
+- ML metadata tracking  
+- Monitoring  
+- Feedback loops
+
+Source: [Kreuzberger (2023)](https://doi.org/10.1109/ACCESS.2023.3262138)
+
+## Who is MLOps?  
+
+![Source: [Kreuzberger (2023)](https://doi.org/10.1109/ACCESS.2023.3262138)](img/ven2.gif)  
+
+
+## Who is MLOps?    
+
+::: {layout-ncol=2}
+![](img/ven2.gif)
+
+![](img/chan.jpeg)
+:::
+
+
+
+## Experimentation vs Productionisation  (Inner Loop vs Outer Loop)  
+
+![Kenneth Jensen, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons](img/crispdm.png)
+
+
+
+## Experimentation vs Productionisation  (Inner Loop vs Outer Loop)  
+
+::: {.nonincremental}
+- Business Understanding  
+- Data Understanding  
+- Data Preparation  
+- Modelling  
+- Evaluation  
+- Deployment  
+:::
+
+Source: [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining)
+
+--- 
+
+- **Outer Loop**  
+- Infrastructure Deployment
+  - **Inner Loop**  
+    - Business Understanding  
+    - Data Understanding  
+    - Data Preparation  
+    - Modelling  
+    - Evaluation   
+- Model Registration and Deployment  
+- Monitoring  
 
 ## Reference Architecture  
 
+![](img/arch.png)  
+
+
 ## Deployment patterns
 
+```{mermaid}
+graph TD;
+    MLArchitecture-->Classic;
+    MLArchitecture-->ComputerVision;
+    MLArchitecture-->NLP;
+    Infra-Deployment-->Bicep;
+    Infra-Deployment-->Terraform;
+    Infra-Deployment-->CLI;
+```
+
+<br> 
+<br> 
+
+```{mermaid}
+graph TD;
+    Orchestration-->AzureDevOps;
+    Orchestration-->Github;
+    MlOpsCode-->Python-SDK;
+    MlOpsCode-->Azure-CLI-v2;
+```
+
+## Azure ML Studio Tour  
 
 # Part 2: Converting development code into production quality code   
 
-## Case Study:  TBC  
+## Case Study:  Taxi Model    
 
-## Review experimentation code  
+## Review experimentation code   
+
+```{mermaid}
+graph TB
+    subgraph id1 [Monolithic Notebook]
+    a1[Load Dependencies]-->a2[Data Prep]-->a3[Test/Train Split]-->a4[Train Model]-->a5[Evaluate Model]-->a6[Diagnostics]
+    end
+    a7[(Data)]-->a2
+    style id1 fill:lightblue;
+```
 
 ## Split into scripts
 
+```{mermaid}
+graph TB
+  a1[[Data Prep]] 
+  a2[[Model Training]]
+  a3[[Evaluation]]
+  a4[[Unit Tests]]
+```
+
+## Parameterise scripts
+
+```{mermaid}
+graph TB
+  a1[[Data Prep]]-->a2[[Model Training]]-->a3[[Evaluation]]-->a4[[Unit Tests]]
+```
+
+
 ## MLOps additions
+
+```{mermaid}
+graph TB
+  b1[[Infrastructure Deploy]]
+  a1[[Data Prep]]-->a2[[Model Training]]-->a3[[Evaluation]]-->a4[[Unit Tests]]
+  e1[[Deploy REST API Endpoint]]
+```
+
+## Pipeline  
+
+```{mermaid}
+flowchart LR
+  subgraph p1[Infra Deploy Pipeline]
+  b1[[Infrastructure Deploy]]
+  end
+  subgraph p2[Model Training Pipeline]
+  a1[[Data Prep]]-->a2[[Model Training]]-->a3[[Evaluation]]-->a4[[Unit Tests]]
+  end
+  subgraph p3[Endpoint Deployment Pipeline]
+  e1[[Deploy REST API Endpoint]]
+  end
+  p1 --> p2
+  p2-->p3
+  style p1 fill:lightblue;
+  style p2 fill:lightblue;
+  style p3 fill:lightblue;
+```
+
+## Pipeline  
+
+
+```{mermaid}
+flowchart LR
+  s1[[config.yml]]-->b2
+  subgraph p1[Infra Deploy Pipeline]
+    direction TB
+    b1[[install az cli]]-->b2[[create resource group]]-->b3[[create workspace]]-->b4[[create compute]]
+  end
+  a7[[environment.yaml]]-->a6
+  a9[(Data)]-->a8
+  subgraph p2[Model Training Pipeline]
+    direction TB
+    a6[[register environment]]-->a8[[register data]]-->a1[[Data Prep]]-->a2[[Model Training]]-->a3[[Evaluation]]-->a4[[Register Model]]
+  end
+  subgraph p3[Endpoint Deployment Pipeline]
+    direction TB
+    e1[[Create REST Online endpoint]]-->e2[[Deploy Model to enpoint]]-->e3[[test endpoint]]
+  end
+  p1 --> p2
+  p2-->p3
+  style p1 fill:lightblue;
+  style p2 fill:lightblue;
+  style p3 fill:lightblue;
+```
 
 
 # Part 3: Deploying MLOps pipelines  
+
+## Quickstart  
+
+https://learn.microsoft.com/en-us/azure/machine-learning/how-to-setup-mlops-azureml
+
+- DevOps  
+- Azure Portal  
+- Set up authentication with Azure and DevOps  
+- Set up Repo and Security settings  
+- Create Pipeline  
+
 
 ## Infrastructure as Code deployment  
 
@@ -53,3 +234,11 @@ format:
   - Model performance promotion  
   - Monitoring 
   - CI/CD  
+
+## Thanks!  
+
+- Insert Link 1
+- Insert Link 2  
+
+Contact Info  
+

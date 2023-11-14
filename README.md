@@ -6,12 +6,13 @@ Website: [https://StatSocAus.github.io/tutorial_deploywithazure](https://StatSoc
 
 ## Structure of tutorial
  
-* Overview of Azure Machine Learning Studio  
-    - Feature Overview  
+* Overview of MLOps 
     - What is MLOps?  
+    - Who is MLOps?  
     - Experimentation vs Productionisation (Inner Loop vs Outer Loop)  
     - Reference Architecture  
     - Deployment patterns
+    - Azure ML Studio Tour
 * Converting development code into production quality code  
     - Case Study:  TBC  
     - Review experimentation code  
