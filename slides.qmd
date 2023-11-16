@@ -12,6 +12,17 @@ format:
     footer: "[https://deanmarchiori.github.io/deploywithazure](https://deanmarchiori.github.io/deploywithazure)"
 ---
 
+```{r}
+#| include: false
+library(icons)
+
+icons_fa <- icons::fontawesome
+icon_link <- icon_style(icons_fa$solid$link, fill = "#f0a800", float = "left")
+icon_github <- icon_style(icons_fa$brands$github, fill = "#f0a800", float = "left")
+icon_plane <- icon_style(icons_fa$solid$`paper-plane`, fill = "#f0a800", float = "left")
+
+```
+
 ## Go from this... 
 
 {{< video img/model.webm width="900" height="600" >}}
@@ -143,10 +154,9 @@ Not really important, just a quick example.
 
 ::: {.column width="50%"}
 
-```{python}
+```{python, python.reticulate = FALSE}
 #| eval: false
 #| echo: true
-#| 
 RandomForestRegressor(n_estimators = 500,
                       bootstrap = 1,
                       max_depth = 10,
@@ -159,7 +169,7 @@ RandomForestRegressor(n_estimators = 500,
 :::
 
 ::: {.column width="50%"}
-```{python}
+```
 #| eval: false
 #| echo: true
 
@@ -333,10 +343,20 @@ More bespoke instructions at:
   - Monitoring 
   - CI/CD  
 
-## Thanks!  
 
-- Insert Link 1
-- Insert Link 2  
+## Learning more
 
-Contact Info  
+<br>
+
+For all resources visit: [https://deanmarchiori.github.io/deploywithazure](https://deanmarchiori.github.io/deploywithazure)  
+
+<br>
+
+### Contact Info 
+
+`r icon_link`   [deanmarchiori.com](deanmarchiori.com)
+
+`r icon_github`   deanmarchiori  
+
+`r icon_plane`   dean@wavedatalabs.com.au
 

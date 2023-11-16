@@ -14,7 +14,7 @@ Website: [https://StatSocAus.github.io/tutorial_deploywithazure](https://StatSoc
     - Deployment patterns
     - Azure ML Studio Tour
 * Converting development code into production quality code  
-    - Case Study:  TBC  
+    - Case Study: NYC Taxi Fare Prediction    
     - Review experimentation code  
     - Split into scripts
     - MLOps additions
@@ -24,15 +24,11 @@ Website: [https://StatSocAus.github.io/tutorial_deploywithazure](https://StatSoc
     - Model training  
     - Endpoint deployment and test  
     - Usage / monitoring  
-    - Advice for real-world deployments  
-        - Security  
-        - Prod vs Dev  
-        - Unit Tests
-        - Model performance promotion  
-        - Monitoring 
-        - CI/CD  
+    - Advice for real-world deployments   
 
-Background: Participants should have some experience with Python and basic understanding of cloud platforms such as Microsoft Azure, AWS or Google Cloud Platform.  
+## Background  
+
+Participants should have some experience with Python and basic understanding of cloud platforms such as Microsoft Azure, AWS or Google Cloud Platform.  
 
 ## Course Schedule
 
@@ -69,10 +65,12 @@ import mlflow.sklearn
 
 2. Git running on your local machine.  
 
+3. Clone this github repository: TBC
+
 2. (OPTIONAL) Users wanting to replicate the Cloud deployment steps will require the following:
 
     a) Sign up for a subscription with Microsoft Azure. This is a paid service, but Microsoft offers new users with a $200 USD credit to use within 30 days. https://azure.microsoft.com/en-au/free  
-    b) Have an active DevOps organisation. Note that Microsoft have temporarily disabled the free grant of parallel jobs for public projects and for certain private projects in new organizations. However, you can request this grant by submitting a [request](https://aka.ms/azpipelines-parallelism-request). Existing organizations and projects are not affected. Please note that it takes us 2-3 business days to respond to free tier requests.
+    b) Have an active DevOps organisation. *Note that Microsoft have temporarily disabled the free grant of parallel jobs for public projects and for certain private projects in new organizations. However, you can request this grant by submitting a [request](https://aka.ms/azpipelines-parallelism-request). Existing organizations and projects are not affected. Please note that it takes us 2-3 business days to respond to free tier requests.*
 
 **Step 3 is optional. Its not expected that all participants will want to sign up for an account with Azure. The workshop will demonstrate this as a deployment pathway, but it is not mandatory to enjoy the content and apply the principles to other platforms.**
 
