@@ -17,9 +17,9 @@ format:
 library(icons)
 
 icons_fa <- icons::fontawesome
-icon_link <- icon_style(icons_fa$solid$link, fill = "#f0a800", float = "left")
-icon_github <- icon_style(icons_fa$brands$github, fill = "#f0a800", float = "left")
-icon_plane <- icon_style(icons_fa$solid$`paper-plane`, fill = "#f0a800", float = "left")
+icon_link <- icon_style(icons_fa$solid$link, fill = "#2A6496", float = "left")
+icon_github <- icon_style(icons_fa$brands$github, fill = "#2A6496", float = "left")
+icon_plane <- icon_style(icons_fa$solid$`paper-plane`, fill = "#2A6496", float = "left")
 
 ```
 
@@ -29,7 +29,7 @@ icon_plane <- icon_style(icons_fa$solid$`paper-plane`, fill = "#f0a800", float =
 
 ## To this... 
 
-
+![](img/tothis.png)
 
 # Part 1: Overview of Machine Learning Operations (MLOps)
 
@@ -141,7 +141,7 @@ graph TD;
 
 ## Azure ML Studio Tour  
 
-INSERT IMAGE
+![](img/azureml.png)
 
 
 # Part 2: Converting development code into production quality code   
@@ -317,21 +317,57 @@ More bespoke instructions at:
 
 :::: {.columns}
 
-::: {.column width="40%"}
-1. One  
-2. Two  
-3. Three
+::: {.column width="60%"}
+1. Create the resource group   
+2. Create the Azure ML workspace  
+3. Connect to the Azure ML workspace  
+4. Create the compute target  
+
 :::
 
-::: {.column width="60%"}
-![](img/ven1.gif)
+::: {.column width="40%"}
+![](img/pipeline1.png)
 :::
 
 ::::
 
-## Model training  
+## Model training    
 
-## Endpoint deployment and test  
+:::: {.columns}
+
+::: {.column width="60%"}
+1. Connect to the Azure ML workspace  
+2. Register the environment  
+3. Create the compute target  
+4. Register data  
+5. Run the ML Pipeline
+
+:::
+
+::: {.column width="40%"}
+![](img/pipeline2.png)
+:::
+
+::::
+
+## Endpoint deployment and test    
+
+:::: {.columns}
+
+::: {.column width="60%"}
+1. Connect to the Azure ML workspace    
+2. Create the online endpoint   
+3. Create the online deployment 
+4. Allocate traffic to the online deployment 
+5. Test the online deployment   
+
+:::
+
+::: {.column width="40%"}
+![](img/pipeline3.png)
+:::
+
+::::
 
 ## Real World Considerations
 
