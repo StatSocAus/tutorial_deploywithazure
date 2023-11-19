@@ -2,7 +2,7 @@
 
 <img src="SCV3.png" align="right" width="150" />
 
-Website: [https://StatSocAus.github.io/tutorial_deploywithazure](https://StatSocAus.github.io/tutorial_deploywithazure)
+[Session Slides](https://statsocaus.github.io/tutorial_deploywithazure)
 
 ## Structure of tutorial
  
@@ -42,9 +42,6 @@ Participants should have some experience with Python and basic understanding of 
 |11:15 - 11:30 | Break |
 |11:30 - 12:30 | Session 3|
 
-[Session Slides]()
-
-[Zip file of materials]()
 
 ## Getting started
 
