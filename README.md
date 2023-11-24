@@ -45,7 +45,7 @@ Participants should have some experience with Python and basic understanding of 
 
 ## Getting started
 
-1. (RECOMMENDED) Users wanting to run code interactively should have a Python (3.8) environment and IDE setup **before** the workshop. The `environment.yaml` file in this repository was used to set up a virtual conda environment to run examples in this workshop. You can test this by loading the required libraries:  
+1. (RECOMMENDED) Users wanting to run code interactively should have a Python (3.8) environment and IDE setup **before** the workshop. TIf you are new to python you can check out [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial). The `environment.yaml` file in this repository was used to set up a virtual conda environment to run examples in this workshop. You can test this by loading the required libraries:  
 
 ```
 import argparse
@@ -62,7 +62,7 @@ import mlflow.sklearn
 
 2. Git running on your local machine.  
 
-3. Clone this github repository: TBC
+3. Clone this github repository: [https://github.com/deanmarchiori/mlops-template](https://github.com/deanmarchiori/mlops-template)
 
 2. (OPTIONAL) Users wanting to replicate the Cloud deployment steps will require the following:
 
@@ -80,3 +80,4 @@ import mlflow.sklearn
 
 [Azure MlOps DevOps Quickstart](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-setup-mlops-azureml)  
 
+[Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial)

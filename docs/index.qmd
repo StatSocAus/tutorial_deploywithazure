@@ -169,7 +169,7 @@ RandomForestRegressor(n_estimators = 500,
 :::
 
 ::: {.column width="50%"}
-```
+```{python, python.reticulate = FALSE}
 #| eval: false
 #| echo: true
 

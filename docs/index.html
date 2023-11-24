@@ -585,37 +585,35 @@ Dean Marchiori
 <span id="cb1-7"><a href="#cb1-7"></a>                      random_state<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
-<pre><code>#| eval: false
-#| echo: true
-
-TARGET_COL = "cost"
-
-NUMERIC_COLS = [
-    "distance",
-    "dropoff_latitude",
-    "dropoff_longitude",
-    "passengers",
-    "pickup_latitude",
-    "pickup_longitude",
-    "pickup_weekday",
-    "pickup_month",
-    "pickup_monthday",
-    "pickup_hour",
-    "pickup_minute",
-    "pickup_second",
-    "dropoff_weekday",
-    "dropoff_month",
-    "dropoff_monthday",
-    "dropoff_hour",
-    "dropoff_minute",
-    "dropoff_second",
-]
-
-CAT_NOM_COLS = [
-    "store_forward",
-    "vendor",
-]
-</code></pre>
+<div class="cell" data-python.reticulate="false">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>TARGET_COL <span class="op">=</span> <span class="st">"cost"</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>NUMERIC_COLS <span class="op">=</span> [</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="st">"distance"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="st">"dropoff_latitude"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="st">"dropoff_longitude"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7"></a>    <span class="st">"passengers"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="st">"pickup_latitude"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="st">"pickup_longitude"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="st">"pickup_weekday"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="st">"pickup_month"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="st">"pickup_monthday"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13"></a>    <span class="st">"pickup_hour"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14"></a>    <span class="st">"pickup_minute"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15"></a>    <span class="st">"pickup_second"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16"></a>    <span class="st">"dropoff_weekday"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17"></a>    <span class="st">"dropoff_month"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18"></a>    <span class="st">"dropoff_monthday"</span>,</span>
+<span id="cb2-19"><a href="#cb2-19"></a>    <span class="st">"dropoff_hour"</span>,</span>
+<span id="cb2-20"><a href="#cb2-20"></a>    <span class="st">"dropoff_minute"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21"></a>    <span class="st">"dropoff_second"</span>,</span>
+<span id="cb2-22"><a href="#cb2-22"></a>]</span>
+<span id="cb2-23"><a href="#cb2-23"></a></span>
+<span id="cb2-24"><a href="#cb2-24"></a>CAT_NOM_COLS <span class="op">=</span> [</span>
+<span id="cb2-25"><a href="#cb2-25"></a>    <span class="st">"store_forward"</span>,</span>
+<span id="cb2-26"><a href="#cb2-26"></a>    <span class="st">"vendor"</span>,</span>
+<span id="cb2-27"><a href="#cb2-27"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </section>
